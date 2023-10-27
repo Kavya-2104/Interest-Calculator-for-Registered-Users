@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{%  block content %}
+<style>
+  .box-model{
+   width: 800px;
+  height : 550px;
+  padding: 50px;
+  border-radius: 27px;
+  background-color : #87CEEB;
+ margin-left: auto;
+  margin-right: auto;
+  margin-top : 40px;
+  }
+</style>
+<div class="box-model">
+
+<h1 style=" font-family:'Viga'; font-size:40px;">SIGN UP</h1>
+<form method='POST' style="text-align: left; margin:0 auto; width:600px; font-family:'Viga'; ">{% csrf_token %}
+  {{form.as_p}}
+
+  <input type="submit" class="btn btn-primary" name="Submit" href="{% url 'success' %}"/>
+</form>
+</div>
+{% endblock %}

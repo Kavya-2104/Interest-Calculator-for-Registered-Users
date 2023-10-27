@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{%  block content %}
+
+<form method="post">
+  {% csrf_token %}
+    <p style="color:white;">Are you sure you want to delete ?</p>
+    <p style="color:white;">This action can't be undone</p>
+    <input type="submit" class="btn btn-danger" value="Confirm"/>
+</form>
+
+{% endblock %}

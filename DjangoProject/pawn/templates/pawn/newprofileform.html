@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{%  block content %}
+<style>
+  .box-model{
+   width: 500px;
+  height : 550px;
+  padding: 50px;
+  font-family:'Viga';
+  border-radius: 27px;
+  background-color : #ECB600;
+ margin-left: auto;
+  margin-right: auto;
+  }
+</style>
+<br/>
+<b style="font-size : 30px;font-family: 'Viga';color : white;">NEW CUSTOMER FORM</b>
+
+  <br/> <br/>
+<div class="box-model" >
+
+
+<form method="POST">
+  {% csrf_token %}
+ <div class="form-group" style="font-size : 20px;font-family: 'Viga';">
+    <b> First name :</b> {{form.first_name}}
+  <br/>
+    <b> Last name :</b> {{form.last_name}}
+  <br/>
+    <b> Email :</b> {{form.email}}
+  <br/>
+    <b> Phno :</b> {{form.phnno}}
+  <br/>
+    <b> Loan Amount :</b> {{form.amount}}
+  <br/>
+    <b> Interest Percentage :</b> {{form.interest}}
+  <br/>
+    <b> Duration(Months):</b>{{form.month}}
+  <br/>
+    <b> Collateral :</b> {{form.collateral}}
+  <br/>
+    <b> Address :</b> {{form.address}}
+    <br/>
+  <button type="submit" class="btn btn-primary my-5">Submit</button>
+   </div>
+</form>
+
+</div>
+{% endblock %}

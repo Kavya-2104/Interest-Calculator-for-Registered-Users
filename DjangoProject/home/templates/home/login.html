@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{%  block content %}
+
+
+<!--   <form method='POST'>{% csrf_token %}-->
+<!--  {{form.username}}-->
+<!--       {{form.password}}-->
+<!--       <br/>-->
+<!--    <input type="submit" class="btn btn-primary" name="Submit"/>-->
+<!--</form>-->
+
+
+<!-- Section: Design Block -->
+<section class=" text-center text-lg-start">
+  <style>
+  .center {
+  margin: auto;
+}
+    .rounded-t-5 {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .rounded-tr-lg-0 {
+        border-top-right-radius: 0;
+      }
+
+      .rounded-bl-lg-5 {
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+  </style>
+  <div class="card" style="margin-top:40px ;">
+      <h1 style="font-size:40px;font-color : white;margin-top : 30px;font-family:'Viga';">LOGIN FORM</h1> <br/>
+    <div class="row g-0 d-flex align-items-center">
+      <div class="col-lg-4 d-none d-lg-flex">
+          <img src="https://static.vecteezy.com/system/resources/previews/005/879/539/original/cloud-computing-modern-flat-concept-for-web-banner-design-man-enters-password-and-login-to-access-cloud-storage-for-uploading-and-processing-files-illustration-with-isolated-people-scene-free-vector.jpg"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5"><form method='POST'>
+              {% csrf_token %}
+            <!-- Email input -->
+            <label class="form-label" style="" for="form2Example1" ><b style=" font-family:'Viga';font-size:20px;">User name</b></label>
+            <div class="form-outline mb-4">
+              <div class="form-group row justify-content-center " id="form2Example1">
+         {{form.username}}
+              </div>
+            </div>
+            <label class="form-label" for="form2Example2"><b style=" font-family:'Viga';font-size:20px;">Password</b></label>
+            <div class="form-outline mb-4">
+              <div class="form-group row justify-content-center" style="margin-left :auto;margin-right:auto;" id="form2Example2">
+             {{form.password}}
+              </div>
+
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                  <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+              </div>
+
+              <div class="col">
+                <!-- Simple link -->
+                <a href="#!">Forgot password?</a>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+
+           <input type="submit" class="btn btn-primary   mb-2" name="Submit"/>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->
+{% endblock %}

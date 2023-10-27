@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{%  block content %}
+
+<div style="margin-top : 30">
+    {% for user in ex %}
+    <div class="card">
+  <h5 class="card-header">{{user.first_name}} {{user.last_name}}</h5>
+  <div class="card-body">
+         <p class="card-text">Amount : {{user.amount}}</p>
+          <p class="card-text">Interest : {{user.interest}}</p>
+          <p class="card-text">Total Months : {{user.month}}</p>
+    <a href="{% url 'profile.detail' pk=user.id %}" class="btn btn-primary">View Profile</a>
+  </div>
+</div>
+    <br/>
+    {% endfor %}
+</div>
+{% endblock %}

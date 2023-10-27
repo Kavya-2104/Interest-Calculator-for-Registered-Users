@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{%  block content %}
+<style>
+  .box-model{
+   width: 800px;
+  height : 550px;
+  padding: 50px;
+  border-radius: 27px;
+  background-color : #87CEEB;
+ margin-left: auto;
+  margin-right: auto;
+  }
+  #calculate_op{
+         color: black;
+         font-size: 20px;
+         width: 120px;
+         align-content: center;
+         margin-left:10px;
+         cursor: pointer;
+      }
+</style>
+
+
+<div class="card" style="width: 50rem; margin:auto;margin-top : 20px;">
+     <div class="card-header" style="background :#008080; ">
+   <h1 style="color : black;font-size:80px">{{pawn.first_name}}</h1>
+    <h2 style="color : black;font-size:80px"> {{pawn.last_name}}</h2>
+  </div>
+    <b style="color : black;">DATE REGISTERED : {{pawn.date}}</b>
+  <ul class="list-group list-group-flush">
+
+    <li class="list-group-item">Email : {{pawn.email}}</li>
+    <li class="list-group-item">Phone num : {{pawn.phnno}}</li>
+    <li class="list-group-item">Loan Amount : {{pawn.amount}}</li>
+       <li class="list-group-item">Interest Rate : {{pawn.interest}}</li>
+       <li class="list-group-item">Total Months : {{pawn.month}}</li>
+       <li class="list-group-item">Collateral : {{pawn.collateral}}</li>
+       <li class="list-group-item">Address : {{pawn.address}}</li>
+  </ul>
+</div>
+<div style="box-model">
+    <p><b style="font-size : 40px; color:white;">Calculate Payable Amount</b>
+        <br/>
+    </p>
+            <input type="button" value="Calculate" id="calculate_op" onclick="calculate()">
+    <p><b style="font-size : 30px; color:white;"> Amount :</b>
+            <span style="font-weight: 80px; font-size:30px; color: white; margin-top: 100px;" id="output"></span>
+      </p>
+</div>
+<div>
+
+</div>
+ <script>
+      function calculate(){
+         amount={{pawn.amount}}
+         rate={{pawn.interest}}
+         time={{pawn.month}}
+         const interest = (amount * (rate * 0.01)) / time;
+         let emi = ((amount / time) + interest).toFixed(2);
+         emi = emi.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+         document.getElementById("output").innerHTML=emi
+      }
+   </script>
+<a href="{% url 'profile.list' %}" class="btn btn-secondary my-5">Back</a>
+<a href="{% url 'profile.update' pk=user.id %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'profile.delete' pk=user.id %}" class="btn btn-danger">Delete</a>
+{% endblock %}
